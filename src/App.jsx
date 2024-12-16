@@ -15,8 +15,7 @@ function App() {
     <div className="container">
       <Header />
       <ProductSection
-        title="❤️ Tabela de valores"
-        image="bolo1.jpg"
+        title="❤️ Produtos Artesanais"
         onOrder={handleOrder}
       />
       {/* <p className="order-counter">Pedidos realizados: {orderCount}</p> */}

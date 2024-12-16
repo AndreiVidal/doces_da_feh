@@ -1,33 +1,30 @@
-import React from "react";
-
-const Table = () => {
+const Table = ({ data }) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Tamanhos</th>
-          <th>2 Recheios</th>
-          <th>3 Recheios</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>P - 15 fatias</td>
-          <td>R$ 70,00</td>
-          <td>R$ 90,00</td>
-        </tr>
-        <tr>
-          <td>M - 30 fatias</td>
-          <td>R$ 140,00</td>
-          <td>R$ 175,00</td>
-        </tr>
-        <tr>
-          <td>G - 60 fatias</td>
-          <td>R$ 220,00</td>
-          <td>R$ 280,00</td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      {data.map((table, index) => (
+        <div key={index} className="table-section">
+          <h3 className="table-title">{table.title}</h3> {/* Adicione o título aqui */}
+          <table>
+            <thead>
+              <tr>
+                {table.headers.map((header, i) => (
+                  <th key={i}>{header}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {table.rows.map((row, i) => (
+                <tr key={i}>
+                  {row.map((cell, j) => (
+                    <td key={j}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+    </div>
   );
 };
 
