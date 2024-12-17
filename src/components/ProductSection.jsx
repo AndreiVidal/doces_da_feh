@@ -7,15 +7,16 @@ const ProductSection = ({ title }) => {
   const [showRecheios, setShowRecheios] = useState(false);
 
   const images = [
-    "./src/assets/bolo1.jpg",
-    "./src/assets/bolo2.jpg",
-    "./src/assets/bolo3.jpg",
-    "./src/assets/bolo4.jpg",
-    "./src/assets/bolo5.jpg",
-    "./src/assets/bolo6.jpg",
-    "./src/assets/bolo7.jpg",
-    "./src/assets/bolo8.jpg",
+    "/bolo1.jpg",
+    "/bolo2.jpg",
+    "/bolo3.jpg",
+    "/bolo4.jpg",
+    "/bolo5.jpg",
+    "/bolo6.jpg",
+    "/bolo7.jpg",
+    "/bolo8.jpg",
   ];
+  
 
   const toggleImages = () => setShowImages(!showImages);
   const toggleRecheios = () => setShowRecheios(!showRecheios);
