@@ -18,7 +18,6 @@ const ProductSection = ({ title }) => {
     "/bolo9.jpg",
     "/bolo10.jpg",
   ];
-  
 
   const toggleImages = () => setShowImages(!showImages);
   const toggleRecheios = () => setShowRecheios(!showRecheios);
@@ -33,7 +32,10 @@ const ProductSection = ({ title }) => {
   const tableData = [
     {
       title: "Brigadeiros",
-      headers: ["Sabores Tradicionais - R$120,00", "Sabores Especiais - R$140,00"],
+      headers: [
+        "Sabores Tradicionais - R$120,00",
+        "Sabores Especiais - R$140,00",
+      ],
       rows: [
         ["Brigadeiro 50% cacau", "Churros"],
         ["Branquinho", "Oreo"],
@@ -56,10 +58,8 @@ const ProductSection = ({ title }) => {
     },
     {
       title: "Bolo Redondo",
-      headers: ["Tamanho","Valor"],
-      rows: [
-        ["Aro 25cm","R$ 160,00"],
-      ],
+      headers: ["Tamanho", "Valor"],
+      rows: [["Aro 25cm", "R$ 160,00"]],
     },
   ];
 
@@ -81,15 +81,33 @@ const ProductSection = ({ title }) => {
 
           {showRecheios && (
             <div className="recheios-list">
-              <h3>Escolha seu Recheio:</h3>
-              <ul>
-                <li><strong>Chantili:</strong> Bombom, Pedaços de Chocolate, Oreo, Frutas</li>
-                <li><strong>Mousse:</strong> Chocolate, Morango, Abacaxi</li>
-                <li><strong>Brigadeiro:</strong> Tradicional, Branquinho, Café, Paçoca, Oreo</li>
-                <li><strong>Coco com Leite Condensado</strong></li>
-                <li><strong>Sensação:</strong> Mousse de Morango com Pedaços de Chocolate</li>
-                <li><strong>Doce de Leite</strong></li>
-                <li><strong>Acréscimos:</strong> Ganache, Nutella, Ameixa, 2 Tipos de Frutas</li>
+              <h3 className="title">Escolha seu Recheio:</h3>
+              <ul className="list">
+                <li>
+                  <strong>Chantili:</strong> Bombom, Pedaços de Chocolate,
+                  Frutas (Morango, Abacaxi, Pêssego)
+                </li>
+                <li>
+                  <strong>Mousse:</strong> Chocolate, Morango, Abacaxi
+                </li>
+                <li>
+                  <strong>Brigadeiro:</strong> Tradicional, Branquinho, Café,
+                  Paçoca, Oreo
+                </li>
+                <li>
+                  <strong>Coco com Leite Condensado</strong>
+                </li>
+                <li>
+                  <strong>Sensação:</strong> Mousse de Morango com Pedaços de
+                  Chocolate
+                </li>
+                <li>
+                  <strong>Doce de Leite</strong>
+                </li>
+                <li>
+                  <strong>Acréscimos:</strong> Ganache, Nutella, Ameixa, 2 Tipos
+                  de Frutas
+                </li>
               </ul>
             </div>
           )}
@@ -97,7 +115,9 @@ const ProductSection = ({ title }) => {
 
         {/* Botão para mostrar imagens */}
         <button className="details-btn" onClick={toggleImages}>
-          {showImages ? "Ocultar meus trabalhos" : "Veja alguns dos meus trabalhos"}
+          {showImages
+            ? "Ocultar meus trabalhos"
+            : "Veja alguns dos meus trabalhos"}
         </button>
 
         {/* Galeria de imagens */}
@@ -124,10 +144,18 @@ const ProductSection = ({ title }) => {
       <div className="observations-section">
         <h3>Observações</h3>
         <ul>
-          <li><strong>Encomendas:</strong> Mediante 50% do valor</li>
-          <li><strong>Entregas:</strong> A combinar</li>
-          <li><strong>Encomendas:</strong> Até 6 dias antes da entrega</li>
-          <li><strong>Formas de pagamento:</strong> PIX, Dinheiro, Cartão</li>
+          <li>
+            <strong>Encomendas:</strong> Mediante 50% do valor
+          </li>
+          <li>
+            <strong>Entregas:</strong> A combinar
+          </li>
+          <li>
+            <strong>Encomendas:</strong> Até 6 dias antes da entrega
+          </li>
+          <li>
+            <strong>Formas de pagamento:</strong> PIX, Dinheiro, Cartão
+          </li>
         </ul>
       </div>
     </section>

@@ -1,10 +1,10 @@
 const Table = ({ data }) => {
   return (
-    <div>
+    <div className="table-container">
       {data.map((table, index) => (
         <div key={index} className="table-section">
-          <h3 className="table-title">{table.title}</h3> {/* Adicione o título aqui */}
-          <table>
+          <h3 className="table-title">{table.title}</h3>
+          <table className="styled-table">
             <thead>
               <tr>
                 {table.headers.map((header, i) => (
@@ -16,7 +16,9 @@ const Table = ({ data }) => {
               {table.rows.map((row, i) => (
                 <tr key={i}>
                   {row.map((cell, j) => (
-                    <td key={j}>{cell}</td>
+                    <td key={j} data-label={table.headers[j]}>
+                      {cell}
+                    </td>
                   ))}
                 </tr>
               ))}

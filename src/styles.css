@@ -5,14 +5,62 @@ body {
     color: #5a1a4a;
     text-align: center;
   }
-  
-  .header {
-    background-color: #b63f72;
-    padding: 20px;
-    color: #fff;
-    font-size: 1.8rem;
-  }
-  
+/* Estilo do cabeçalho */
+.header {
+  background: linear-gradient(135deg, #d63384, #ff61a6); /* Gradiente de cores suaves */
+  padding: 50px 30px; /* Aumento do padding para mais espaçamento */
+  color: #fff; /* Cor do texto */
+  font-size: 2.4rem; /* Tamanho da fonte maior para destacar */
+  font-weight: 700; /* Peso da fonte mais forte */
+  text-align: center; /* Centraliza o texto */
+  font-family: 'Poppins', sans-serif; /* Fonte moderna e clean */
+  border-radius: 15px; /* Bordas arredondadas para suavizar o visual */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15); /* Sombra mais intensa para profundidade */
+  letter-spacing: 2px; /* Espaçamento maior entre as letras */
+  text-transform: capitalize; /* Primeira letra de cada palavra maiúscula */
+  margin-bottom: 50px; /* Mais espaço abaixo */
+  position: relative; /* Para permitir um posicionamento decorativo de elementos */
+  transition: box-shadow 0.3s ease; /* Remover transição de cor e transformação */
+}
+
+/* Adicionar um efeito decorativo com linhas no topo e no fundo */
+.header::before, .header::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: url('https://www.svgrepo.com/show/284771/decorative-line.svg') repeat-x center; /* Linha decorativa */
+  z-index: -1;
+}
+
+/* Adicionar uma linha de destaque inferior */
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #ff61a6; /* Linha inferior decorativa */
+  border-radius: 2px;
+}
+
+/* Efeito de foco */
+.header:focus {
+  outline: none; /* Remove o contorno padrão */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Efeito de foco mais suave */
+}
+
+/* Opções para uma borda suave */
+.header-border {
+  border: 2px solid #ff61a6; /* Borda fina com cor decorativa */
+  padding: 40px 25px;
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo semitransparente */
+  border-radius: 12px;
+}
+
   .product-section {
     margin: 40px auto;
     max-width: 900px;
@@ -54,12 +102,80 @@ body {
     background-color: #a33465;
   }
   
-  .footer {
-    background-color: #b63f72;
-    color: #fff;
-    padding: 15px;
-    margin-top: 30px;
+/* Estilo do Footer */
+.footer {
+  background: linear-gradient(135deg, #b63f72, #ff61a6); /* Gradiente suave */
+  color: #fff; /* Cor do texto */
+  padding: 30px 20px; /* Padding maior para mais espaço */
+  margin-top: 50px; /* Mais espaço acima do footer */
+  text-align: center; /* Centraliza o conteúdo */
+  font-family: 'Poppins', sans-serif; /* Fonte clean e moderna */
+  border-radius: 15px; /* Bordas arredondadas */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidade */
+}
+
+.footer h3 {
+  font-size: 2rem; /* Tamanho do título */
+  font-weight: 600; /* Peso da fonte */
+  letter-spacing: 1px; /* Espaçamento entre letras */
+  margin-bottom: 20px; /* Mais espaço abaixo do título */
+}
+
+.footer p {
+  font-size: 1.2rem; /* Tamanho do texto */
+  font-weight: 400; /* Peso leve para o texto */
+  margin-bottom: 20px; /* Espaçamento abaixo do texto */
+}
+
+/* Estilo para a parte de créditos com o ícone de copyright */
+.footer-credits {
+  position: fixed;
+  bottom: 20px; /* Coloca no canto inferior */
+  left: 20px; /* Lado esquerdo da tela */
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem; /* Tamanho de fonte discreto */
+  color: rgba(255, 255, 255, 0.7); /* Cor discreta */
+  font-weight: 300; /* Peso leve */
+  cursor: pointer; /* Mostra que é clicável */
+  transition: color 0.3s ease;
+}
+
+.footer-credits:hover {
+  color: #ff61a6; /* Muda para cor destacada ao passar o mouse */
+}
+
+/* Estilo do ícone de copyright */
+.copy-icon {
+  margin-right: 5px; /* Distância entre o ícone e o nome */
+  font-size: 1.2rem; /* Tamanho do ícone */
+  cursor: pointer; /* Cursor de clique */
+}
+
+/* Notificação de "Copiado!" */
+.copy-notification {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 0.8rem;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  transform: translateX(-10px);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animação de fade-in para a notificação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
+
   .form-container {
   margin-top: 30px;
   padding: 20px;
@@ -108,13 +224,91 @@ form div label {
   display: flex;
   align-items: center;
 }
-.table-title {
-  text-align: center;
-  font-size: 1.5rem;
-  margin: 1rem 0;
-  color: #ff69b4; /* Rosa claro como seu tema */
+
+/* Container da tabela */
+.table-container {
+  margin: 20px 0;
+  overflow-x: auto; /* Permite rolagem horizontal se necessário */
 }
 
+/* Seção de cada tabela */
 .table-section {
-  margin-bottom: 2rem; /* Espaço entre tabelas */
+  margin-bottom: 30px;
+  background: #ffe6f2; /* Fundo em rosa claro */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Título da tabela */
+.table-title {
+  font-size: 1.5rem;
+  color: #d63384; /* Rosa mais escuro */
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Estilo da tabela */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  text-align: left;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho */
+.styled-table thead tr {
+  background: #ffb3c6; /* Rosa suave */
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Corpo da tabela */
+.styled-table tbody tr {
+  border-bottom: 1px solid #ffb3c6;
+}
+
+/* Células */
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+  word-wrap: break-word; /* Garante que o texto longo será quebrado */
+  text-align: center; /* Alinhamento central */
+}
+
+/* Cores alternadas nas linhas */
+.styled-table tbody tr:nth-of-type(odd) {
+  background: #fdf2f7;
+}
+
+/* Hover nas linhas */
+.styled-table tbody tr:hover {
+  background: #ffe6f2;
+  transition: background 0.3s ease;
+}
+
+/* Responsividade para mobile */
+@media screen and (max-width: 768px) {
+  /* Tabela ainda mantém as mesmas colunas e linhas, mas com rolagem */
+  .table-container {
+    overflow-x: auto; /* Permite rolagem horizontal */
+  }
+
+  .styled-table {
+    font-size: 0.9rem; /* Ajusta o tamanho da fonte no mobile */
+  }
+
+  .styled-table th,
+  .styled-table td {
+    padding: 10px 12px; /* Ajuste de espaçamento das células */
+  }
+
+  /* Garante que a tabela não quebre nas colunas */
+  .styled-table td {
+    word-wrap: break-word; /* Quebra palavras longas */
+  }
 }

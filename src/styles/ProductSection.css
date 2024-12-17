@@ -56,17 +56,42 @@
   
   /* Lista de recheios */
   .recheios-list {
-    margin-top: 1rem;
-    text-align: left;
+    background: #ffe6f2; /* Fundo em tom de rosa claro */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
   }
   
-  .recheios-list ul {
+  .recheios-list .title {
+    font-size: 1.5rem;
+    color: #d63384; /* Rosa mais escuro */
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .recheios-list .list {
     list-style: none;
+    padding: 0;
   }
   
-  .recheios-list li {
-    margin: 0.5rem 0;
+  .recheios-list .list li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ffb3c6; /* Borda rosa claro */
+    transition: transform 0.2s;
   }
+  
+  .recheios-list .list li:hover {
+    transform: scale(1.02);
+  }
+  
+  .recheios-list .list li strong {
+    color: #d63384;
+  }
+  
   
   /* Detalhes do botão para galeria */
   .details-btn {
