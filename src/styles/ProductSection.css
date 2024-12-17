@@ -180,6 +180,7 @@
 
     img.gallery-image {
       width: 100%;
+    }
   
     .buttons-container {
       width: 100%;
@@ -220,4 +221,5 @@
       margin-top: 1.5rem;
     }
   }
+}
   
