@@ -15,6 +15,8 @@ const ProductSection = ({ title }) => {
     "/bolo6.jpg",
     "/bolo7.jpg",
     "/bolo8.jpg",
+    "/bolo9.jpg",
+    "/bolo10.jpg",
   ];
   
 
