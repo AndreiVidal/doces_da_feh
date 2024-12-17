@@ -18,7 +18,6 @@ function App() {
         title="❤️ Produtos Artesanais"
         onOrder={handleOrder}
       />
-      {/* <p className="order-counter">Pedidos realizados: {orderCount}</p> */}
       <Footer />
     </div>
   );

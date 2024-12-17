@@ -174,9 +174,12 @@
       width: 100%;
     }
   
-    .image-gallery {
-      grid-template-columns: repeat(2, 1fr); /* 2 imagens por linha */
+    div.image-gallery {
+      grid-template-columns: repeat(2, 1fr);
     }
+
+    img.gallery-image {
+      width: 100%;
   
     .buttons-container {
       width: 100%;
@@ -195,9 +198,12 @@
   }
   
   @media (max-width: 480px) {
-    .image-gallery {
-      grid-template-columns: 1fr; /* 1 imagem por linha */
+    div.image-gallery {
+      grid-template-columns: repeat(2, 1fr);
     }
+
+    .gallery-image {
+      width: 100%;
   
     .product-section {
       padding: 1rem;

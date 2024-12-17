@@ -7,14 +7,14 @@ const ProductSection = ({ title }) => {
   const [showRecheios, setShowRecheios] = useState(false);
 
   const images = [
-    "/src/assets/bolo1.jpg",
-    "/src/assets/bolo2.jpg",
-    "/src/assets/bolo3.jpg",
-    "/src/assets/bolo4.jpg",
-    "/src/assets/bolo5.jpg",
-    "/src/assets/bolo6.jpg",
-    "/src/assets/bolo7.jpg",
-    "/src/assets/bolo8.jpg",
+    "./src/assets/bolo1.jpg",
+    "./src/assets/bolo2.jpg",
+    "./src/assets/bolo3.jpg",
+    "./src/assets/bolo4.jpg",
+    "./src/assets/bolo5.jpg",
+    "./src/assets/bolo6.jpg",
+    "./src/assets/bolo7.jpg",
+    "./src/assets/bolo8.jpg",
   ];
 
   const toggleImages = () => setShowImages(!showImages);
@@ -32,23 +32,30 @@ const ProductSection = ({ title }) => {
       title: "Brigadeiros",
       headers: ["Sabores Tradicionais - R$120,00", "Sabores Especiais - R$140,00"],
       rows: [
-        ["P - 15 fatias", "R$ 70,00"],
-        ["P - 15 fatias", "R$ 70,00"],
-        ["M - 30 fatias", "R$ 140,00"],
-        ["M - 30 fatias", "R$ 140,00"],
-        ["M - 30 fatias", "R$ 140,00"],
-        ["M - 30 fatias", "R$ 140,00"],
-        ["M - 30 fatias", "R$ 140,00"],
-        ["M - 30 fatias", "R$ 140,00"],
+        ["Brigadeiro 50% cacau", "Churros"],
+        ["Branquinho", "Oreo"],
+        ["Dois Amores", "Paçoca"],
+        ["Café", "Confetes"],
+        ["Morango", "Choco Balls"],
+        ["Sensação", "Nutella"],
+        ["Cajuzinho", "Ferrero Roche"],
+        ["Menta", ""],
       ],
     },
     {
       title: "Bolos",
-      headers: ["Tamanhos", "4 Recheios", "5 Recheios"],
+      headers: ["Tamanhos", "2 Recheios", "3 Recheios"],
       rows: [
-        ["P - 15 fatias", "R$ 100,00", "R$ 120,00"],
-        ["M - 30 fatias", "R$ 180,00", "R$ 210,00"],
-        ["G - 60 fatias", "R$ 300,00", "R$ 350,00"],
+        ["P - 15 fatias", "R$ 70,00", "R$ 90,00"],
+        ["M - 30 fatias", "R$ 140,00", "R$ 175,00"],
+        ["G - 60 fatias", "R$ 220,00", "R$ 280,00"],
+      ],
+    },
+    {
+      title: "Bolo Redondo",
+      headers: ["Tamanho","Valor"],
+      rows: [
+        ["Aro 25cm","R$ 160,00"],
       ],
     },
   ];
