@@ -15,7 +15,6 @@ function App() {
     <div className="container">
       <Header />
       <ProductSection
-        title="❤️ Produtos Artesanais"
         onOrder={handleOrder}
       />
       <Footer />
