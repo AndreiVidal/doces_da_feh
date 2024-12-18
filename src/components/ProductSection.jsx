@@ -28,7 +28,7 @@ const ProductSection = ({ title }) => {
       ],
     },
     {
-      title: "Bolos",
+      title: "Bolos retangulares",
       headers: ["Tamanhos", "2 Recheios", "3 Recheios"],
       rows: [
         ["P - 15 fatias", "R$ 70,00", "R$ 90,00"],
@@ -38,8 +38,8 @@ const ProductSection = ({ title }) => {
     },
     {
       title: "Bolo Redondo",
-      headers: ["Tamanho", "Valor"],
-      rows: [["Aro 25cm", "R$ 160,00"]],
+      headers: ["Tamanhos", "2 Recheios", "3 Recheios"],
+      rows: [["Aro 25cm", "R$ 125,00","160,00"]],
     },
   ];
 
@@ -76,7 +76,7 @@ const ProductSection = ({ title }) => {
             <div className="recheios-list">
               <h3 className="title">Escolha seu Recheio:</h3>
               <ul className="list">
-                <li><strong>Chantili:</strong> Bombom, Pedaços de Chocolate, Frutas (Morango, Abacaxi, Pêssego)</li>
+                <li><strong>Chantilly:</strong> Bombom, Pedaços de Chocolate, Frutas (Morango, Abacaxi, Pêssego)</li>
                 <li><strong>Mousse:</strong> Chocolate, Morango, Abacaxi</li>
                 <li><strong>Brigadeiro:</strong> Tradicional, Branquinho, Café, Paçoca, Oreo</li>
                 <li><strong>Coco com Leite Condensado</strong></li>
@@ -90,7 +90,7 @@ const ProductSection = ({ title }) => {
 
         {/* Botão para mostrar as imagens */}
         <button className="details-btn" onClick={toggleImages}>
-          {showImages ? "Ocultar meus trabalhos" : "Veja alguns dos meus trabalhos"}
+          {showImages ? "Ocultar meus trabalhos" : <b>Clique aqui e conheça meu trabalho</b>}
         </button>
 
         {/* Galeria de Imagens */}
@@ -125,9 +125,9 @@ const ProductSection = ({ title }) => {
       <div className="observations-section">
         <h3>Observações</h3>
         <ul>
-          <li><strong>Encomendas:</strong> Mediante 50% do valor</li>
+          <li><strong>Encomendas:</strong> Mediante 50% do valor, até 5 dias antes da entrega</li>
           <li><strong>Entregas:</strong> A combinar</li>
-          <li><strong>Encomendas:</strong> Até 6 dias antes da entrega</li>
+          <li><strong>Personalizados:</strong>Toppers ou papel arroz, consultar valores </li>
           <li><strong>Formas de pagamento:</strong> PIX, Dinheiro, Cartão</li>
         </ul>
       </div>
