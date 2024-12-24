@@ -28,7 +28,7 @@ const ProductSection = ({ title }) => {
       ],
     },
     {
-      title: "Bolos retangulares",
+      title: "Bolos Retangulares",
       headers: ["Tamanhos", "2 Recheios", "3 Recheios"],
       rows: [
         ["P - 15 fatias", "R$ 70,00", "R$ 90,00"],
@@ -39,7 +39,7 @@ const ProductSection = ({ title }) => {
     {
       title: "Bolo Redondo",
       headers: ["Tamanhos", "2 Recheios", "3 Recheios"],
-      rows: [["Aro 25cm", "R$ 125,00","160,00"]],
+      rows: [["Aro 25cm", "R$ 125,00","R$ 160,00"]],
     },
   ];
 
@@ -71,7 +71,7 @@ const ProductSection = ({ title }) => {
 
         {/* Seção de Recheios */}
         <div className="recheios-container">
-          <button className="recheios-btn" onClick={toggleRecheios}>Recheios</button>
+          <button className="recheios-btn" onClick={toggleRecheios}>'Clique aqui' 👉 Recheios</button>
           {showRecheios && (
             <div className="recheios-list">
               <h3 className="title">Escolha seu Recheio:</h3>
@@ -90,7 +90,7 @@ const ProductSection = ({ title }) => {
 
         {/* Botão para mostrar as imagens */}
         <button className="details-btn" onClick={toggleImages}>
-          {showImages ? "Ocultar meus trabalhos" : <b>Clique aqui e conheça meu trabalho</b>}
+          {showImages ? "Ocultar meus trabalhos" : <b>'Clique aqui' 👉 Conheça meu trabalho</b>}
         </button>
 
         {/* Galeria de Imagens */}
@@ -118,7 +118,7 @@ const ProductSection = ({ title }) => {
         )}
 
         {/* Botão do WhatsApp */}
-        <button className="order-btn" onClick={openWhatsApp}>Fazer Pedido</button>
+        <button className="order-btn" onClick={openWhatsApp}>'Clique aqui'👉 Faça seu Pedido</button>
       </div>
 
       {/* Observações */}
