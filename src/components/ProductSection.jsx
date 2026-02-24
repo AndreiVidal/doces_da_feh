@@ -112,9 +112,9 @@ const ProductSection = ({ onOrder }) => {
                 <li>Churros</li>
                 <li>Oreo</li>
                 <li>Paçoca</li>
-                <li>Confetes</li>
-                <li>Choco Balls</li>
-                <li>Nutella</li>
+                <li>Confetes (massas 50% cacau ou Ninho)</li>
+                <li>Choco Balls (massas 50% cacau ou Ninho)</li>
+                <li>Ninho com Nutella</li>
                 <li>Ferrero Rocher</li>
               </ul>
             </div>
