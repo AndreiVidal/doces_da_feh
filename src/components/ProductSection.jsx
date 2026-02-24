@@ -33,7 +33,6 @@ const ProductSection = ({ onOrder }) => {
       {/* ======================== GALERIA ======================== */}
       <div id="galeria" className="section-block">
         <div className="section-header">
-          <span className="section-badge">📸 Portfólio</span>
           <h2 className="section-title">Meus Trabalhos</h2>
           <p className="section-subtitle">Cada bolo é feito com carinho e atenção aos detalhes</p>
         </div>
