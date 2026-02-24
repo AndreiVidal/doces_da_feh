@@ -31,7 +31,7 @@ function App() {
       <button
         className="whatsapp-float"
         onClick={openWhatsApp}
-        title="Fale conosco pelo WhatsApp"
+        title="Fale comigo no WhatsApp"
         aria-label="Abrir WhatsApp"
       >
         <FaWhatsapp />

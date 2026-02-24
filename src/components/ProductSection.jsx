@@ -226,7 +226,7 @@ const ProductSection = ({ onOrder }) => {
           <FaWhatsapp className="cta-icon" />
           <div className="cta-text">
             <span className="cta-title">Fazer Pedido</span>
-            <span className="cta-sub">Fale conosco pelo WhatsApp</span>
+            <span className="cta-sub">Fale comigo no WhatsApp</span>
           </div>
         </button>
       </div>
