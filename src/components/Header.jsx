@@ -29,17 +29,22 @@ const Header = () => {
           </div>
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Mobile menu branding at top of drawer */}
         <nav className={`header-nav ${menuOpen ? "header-nav--open" : ""}`}>
-          <a href="#cardapio" onClick={closeMenu}>Cardápio</a>
-          <a href="#galeria" onClick={closeMenu}>Galeria</a>
-          <a href="#contato" onClick={closeMenu}>Contato</a>
+          <div className="header-nav-brand-mobile">
+            <img src="/logo.jpg" alt="Logo" className="header-logo-mobile" />
+            <h3>Doçuras da Feh</h3>
+          </div>
+          <a href="#cardapio" onClick={closeMenu} style={{ "--i": 1 }}>Cardápio</a>
+          <a href="#galeria" onClick={closeMenu} style={{ "--i": 2 }}>Galeria</a>
+          <a href="#contato" onClick={closeMenu} style={{ "--i": 3 }}>Contato</a>
           <a
             href="https://wa.me/55991349746?text=Ol%C3%A1,%20gostaria%20de%20fazer%20um%20pedido!"
             target="_blank"
             rel="noopener noreferrer"
             className="header-nav-cta"
             onClick={closeMenu}
+            style={{ "--i": 4 }}
           >
             <FaWhatsapp /> Pedir agora
           </a>

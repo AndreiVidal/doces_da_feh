@@ -20,12 +20,14 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <Header />
-      <ProductSection onOrder={handleOrder} />
-      <Footer />
+    <>
+      <div className="container">
+        <Header />
+        <ProductSection onOrder={handleOrder} />
+        <Footer />
+      </div>
 
-      {/* Floating WhatsApp Button */}
+      {/* Floating WhatsApp Button - Outside container for global placement */}
       <button
         className="whatsapp-float"
         onClick={openWhatsApp}
@@ -34,7 +36,7 @@ function App() {
       >
         <FaWhatsapp />
       </button>
-    </div>
+    </>
   );
 }
 
