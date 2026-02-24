@@ -201,6 +201,10 @@
     justify-content: space-between;
   }
 
+  .container {
+    padding-top: 80px;
+  }
+
   .header-menu-btn {
     display: flex;
     align-items: center;
@@ -348,6 +352,10 @@
 
   .header-tagline {
     display: none;
+  }
+
+  .container {
+    padding-top: 60px;
   }
 }
 
