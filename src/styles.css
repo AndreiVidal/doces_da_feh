@@ -98,6 +98,10 @@
   gap: 0.3rem;
 }
 
+.header-nav-brand-mobile {
+  display: none;
+}
+
 .header-nav a {
   color: var(--text-medium);
   font-size: 0.88rem;
