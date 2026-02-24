@@ -1,136 +1,280 @@
 import React, { useState } from "react";
+import { FaWhatsapp, FaTimes, FaChevronDown, FaChevronUp, FaSearchPlus } from "react-icons/fa";
 import "../styles/ProductSection.css";
-import Table from "./Table";
 
-const ProductSection = ({ title }) => {
-  const [showImages, setShowImages] = useState(false);
+const ProductSection = ({ onOrder }) => {
+  const [showAllImages, setShowAllImages] = useState(false);
   const [showRecheios, setShowRecheios] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null); // Estado para a imagem selecionada
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [
     "/bolo1.jpg", "/bolo2.jpg", "/bolo3.jpg", "/bolo4.jpg", "/bolo5.jpg",
     "/bolo6.jpg", "/bolo7.jpg", "/bolo8.jpg", "/bolo9.jpg", "/bolo10.jpg"
   ];
 
-  const tableData = [
-    {
-      title: "Brigadeiros",
-      headers: ["Sabores Tradicionais - R$120,00", "Sabores Especiais - R$140,00"],
-      rows: [
-        ["Brigadeiro 50% cacau", "Churros"],
-        ["Branquinho", "Oreo"],
-        ["Dois Amores", "Paçoca"],
-        ["Café", "Confetes"],
-        ["Morango", "Choco Balls"],
-        ["Sensação", "Nutella"],
-        ["Cajuzinho", "Ferrero Roche"],
-        ["Menta", ""],
-      ],
-    },
-    {
-      title: "Bolos Retangulares",
-      headers: ["Tamanhos", "2 Recheios", "3 Recheios"],
-      rows: [
-        ["P - 15 fatias", "R$ 70,00", "R$ 90,00"],
-        ["M - 30 fatias", "R$ 140,00", "R$ 175,00"],
-        ["G - 60 fatias", "R$ 220,00", "R$ 280,00"],
-      ],
-    },
-    {
-      title: "Bolo Redondo",
-      headers: ["Tamanhos", "2 Recheios", "3 Recheios"],
-      rows: [["Aro 25cm", "R$ 125,00","R$ 160,00"]],
-    },
-  ];
+  const previewImages = images.slice(0, 6);
+  const displayImages = showAllImages ? images : previewImages;
 
-  const toggleImages = () => setShowImages(prev => !prev);
   const toggleRecheios = () => setShowRecheios(prev => !prev);
 
   const openWhatsApp = () => {
-    const whatsappURL = "https://wa.me/55991349746?text=Ol%C3%A1,%20gostaria%20de%20fazer%20um%20pedido!";
-    window.open(whatsappURL, "_blank");
+    window.open("https://wa.me/55991349746?text=Ol%C3%A1,%20gostaria%20de%20fazer%20um%20pedido!", "_blank");
   };
 
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedImage(null);
+  const handleCloseModal = (e) => {
+    if (e.target === e.currentTarget || e.target.closest('.modal-close')) {
+      setSelectedImage(null);
+    }
   };
 
   return (
     <section className="product-section">
-      <h2>{title}</h2>
 
-      <div className="product-container">
-        {/* Tabela de Preços */}
-        <div className="table-container">
-          <Table data={tableData} />
+      {/* ======================== GALERIA ======================== */}
+      <div id="galeria" className="section-block">
+        <div className="section-header">
+          <span className="section-badge">📸 Portfólio</span>
+          <h2 className="section-title">Meus Trabalhos</h2>
+          <p className="section-subtitle">Cada bolo é feito com carinho e atenção aos detalhes</p>
         </div>
 
-        {/* Seção de Recheios */}
-        <div className="recheios-container">
-          <button className="recheios-btn" onClick={toggleRecheios}>'Clique aqui' 👉 Recheios</button>
-          {showRecheios && (
-            <div className="recheios-list">
-              <h3 className="title">Escolha seu Recheio:</h3>
-              <ul className="list">
-                <li><strong>Chantilly:</strong> Bombom, Pedaços de Chocolate, Frutas (Morango, Abacaxi, Pêssego)</li>
-                <li><strong>Mousse:</strong> Chocolate, Morango, Abacaxi</li>
-                <li><strong>Brigadeiro:</strong> Tradicional, Branquinho, Café, Paçoca, Oreo</li>
-                <li><strong>Coco com Leite Condensado</strong></li>
-                <li><strong>Sensação:</strong> Mousse de Morango com Pedaços de Chocolate</li>
-                <li><strong>Doce de Leite</strong></li>
-                <li><strong>Acréscimos:</strong> Ganache, Nutella, Ameixa, 2 Tipos de Frutas</li>
+        <div className={`gallery-grid ${showAllImages ? 'gallery-grid--expanded' : ''}`}>
+          {displayImages.map((imgSrc, index) => (
+            <div
+              key={index}
+              className={`gallery-card ${index === 0 ? 'gallery-card--featured' : ''}`}
+              onClick={() => setSelectedImage(imgSrc)}
+            >
+              <img
+                src={imgSrc}
+                alt={`Bolo decorado ${index + 1}`}
+                className="gallery-card-img"
+                loading="lazy"
+              />
+              <div className="gallery-card-overlay">
+                <FaSearchPlus className="gallery-card-icon" />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {images.length > 6 && (
+          <button
+            className="btn btn--outline"
+            onClick={() => setShowAllImages(prev => !prev)}
+          >
+            {showAllImages ? (
+              <><FaChevronUp style={{ marginRight: 6 }} /> Mostrar Menos</>
+            ) : (
+              <><FaChevronDown style={{ marginRight: 6 }} /> Ver Todas as Fotos ({images.length})</>
+            )}
+          </button>
+        )}
+      </div>
+
+      {/* ======================== CARDÁPIO / PREÇOS ======================== */}
+      <div id="cardapio" className="section-block">
+        <div className="section-header">
+          <span className="section-badge">🍰 Cardápio</span>
+          <h2 className="section-title">Valores</h2>
+          <p className="section-subtitle">Escolha o que combina com a sua comemoração</p>
+        </div>
+
+        {/* Brigadeiros — card especial */}
+        <div className="pricing-card pricing-card--highlight">
+          <div className="pricing-card-header">
+            <h3>Brigadeiros</h3>
+            <p className="pricing-card-note">Cento (100 unidades)</p>
+          </div>
+          <div className="pricing-columns">
+            <div className="pricing-column">
+              <div className="pricing-column-header">
+                <span className="pricing-label">Tradicionais</span>
+                <span className="pricing-value">R$ 145</span>
+              </div>
+              <ul className="pricing-items">
+                <li>Brigadeiro 50% cacau</li>
+                <li>Branquinho</li>
+                <li>Dois Amores</li>
+                <li>Café</li>
+                <li>Morango</li>
+                <li>Sensação</li>
+                <li>Cajuzinho</li>
+                <li>Menta</li>
               </ul>
+            </div>
+            <div className="pricing-column pricing-column--accent">
+              <div className="pricing-column-header">
+                <span className="pricing-label">Especiais</span>
+                <span className="pricing-value">R$ 170</span>
+              </div>
+              <ul className="pricing-items">
+                <li>Churros</li>
+                <li>Oreo</li>
+                <li>Paçoca</li>
+                <li>Confetes</li>
+                <li>Choco Balls</li>
+                <li>Nutella</li>
+                <li>Ferrero Rocher</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Bolos — cards lado a lado */}
+        <div className="pricing-row">
+          <div className="pricing-card">
+            <div className="pricing-card-header">
+              <h3>Bolos Retangulares</h3>
+            </div>
+            <div className="pricing-table-wrap">
+              <table className="pricing-table">
+                <thead>
+                  <tr>
+                    <th>Tamanho</th>
+                    <th>2 Recheios</th>
+                    <th>Até 3 Recheios</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>P</strong> <span className="text-muted">até 15 fatias</span></td>
+                    <td className="price-cell">R$ 90</td>
+                    <td className="price-cell">R$ 115</td>
+                  </tr>
+                  <tr>
+                    <td><strong>M</strong> <span className="text-muted">até 30 fatias</span></td>
+                    <td className="price-cell">R$ 170</td>
+                    <td className="price-cell">R$ 210</td>
+                  </tr>
+                  <tr className="tr-highlight">
+                    <td><strong>G</strong> <span className="text-muted">30×40</span></td>
+                    <td className="price-cell">R$ 270</td>
+                    <td className="price-cell">R$ 340</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="pricing-card">
+            <div className="pricing-card-header">
+              <h3>Bolo Redondo</h3>
+            </div>
+            <div className="pricing-table-wrap">
+              <table className="pricing-table">
+                <thead>
+                  <tr>
+                    <th>Tamanho</th>
+                    <th>2 Recheios</th>
+                    <th>Até 3 Recheios</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Redondo</strong> <span className="text-muted">20 a 25 fatias</span></td>
+                    <td className="price-cell">R$ 150</td>
+                    <td className="price-cell">R$ 190</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        {/* Recheios */}
+        <div className="recheios-container">
+          <button className={`recheios-toggle ${showRecheios ? 'recheios-toggle--active' : ''}`} onClick={toggleRecheios}>
+            <span>Ver Recheios Disponíveis</span>
+            {showRecheios ? <FaChevronUp /> : <FaChevronDown />}
+          </button>
+          {showRecheios && (
+            <div className="recheios-grid">
+              <div className="recheio-card">
+                <h4>Chantilly</h4>
+                <p>Bombom · Pedaços de Chocolate · Morango · Abacaxi · Pêssego</p>
+              </div>
+              <div className="recheio-card">
+                <h4>Mousse</h4>
+                <p>Chocolate · Morango · Abacaxi</p>
+              </div>
+              <div className="recheio-card">
+                <h4>Brigadeiro</h4>
+                <p>Tradicional · Branquinho · Café · Paçoca · Oreo</p>
+              </div>
+              <div className="recheio-card">
+                <h4>Coco</h4>
+                <p>Coco ralado com leite condensado</p>
+              </div>
+              <div className="recheio-card">
+                <h4>Sensação</h4>
+                <p>Mousse de morango com pedaços de chocolate</p>
+              </div>
+              <div className="recheio-card">
+                <h4>Doce de Leite</h4>
+                <p>Doce de leite cremoso</p>
+              </div>
+              <div className="recheio-card recheio-card--accent">
+                <h4>Acréscimos</h4>
+                <p>Ganache · Nutella · Ameixa · 2 Tipos de Frutas</p>
+              </div>
             </div>
           )}
         </div>
 
-        {/* Botão para mostrar as imagens */}
-        <button className="details-btn" onClick={toggleImages}>
-          {showImages ? "Ocultar meus trabalhos" : <b>'Clique aqui' 👉 Conheça meu trabalho</b>}
+        {/* CTA WhatsApp */}
+        <button className="cta-whatsapp" onClick={openWhatsApp}>
+          <FaWhatsapp className="cta-icon" />
+          <div className="cta-text">
+            <span className="cta-title">Fazer Pedido</span>
+            <span className="cta-sub">Fale conosco pelo WhatsApp</span>
+          </div>
         </button>
-
-        {/* Galeria de Imagens */}
-        {showImages && (
-          <div className="image-gallery">
-            {images.map((imgSrc, index) => (
-              <img 
-                key={index} 
-                src={imgSrc} 
-                alt={`Bolo ${index + 1}`} 
-                className="gallery-image" 
-                onClick={() => handleImageClick(imgSrc)} 
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Modal para exibir a imagem maior */}
-        {selectedImage && (
-          <div className="modal" onClick={handleCloseModal}>
-            <div className="modal-content">
-              <img src={selectedImage} alt="Imagem maior" className="modal-image" />
-            </div>
-          </div>
-        )}
-
-        {/* Botão do WhatsApp */}
-        <button className="order-btn" onClick={openWhatsApp}>'Clique aqui'👉 Faça seu Pedido</button>
       </div>
 
-      {/* Observações */}
-      <div className="observations-section">
-        <h3>Observações</h3>
-        <ul>
-          <li><strong>Encomendas:</strong> Mediante 50% do valor, até 5 dias antes da entrega</li>
-          <li><strong>Entregas:</strong> A combinar</li>
-          <li><strong>Personalizados:</strong>Toppers ou papel arroz, consultar valores </li>
-          <li><strong>Formas de pagamento:</strong> PIX, Dinheiro, Cartão</li>
-        </ul>
+      {/* ======================== OBSERVAÇÕES ======================== */}
+      <div className="info-bar">
+        <div className="info-item">
+          <span className="info-icon">📋</span>
+          <div>
+            <strong>Encomendas</strong>
+            <span>Mediante 50% do valor, com no mínimo 5 dias de antecedência</span>
+          </div>
+        </div>
+        <div className="info-item">
+          <span className="info-icon">🚗</span>
+          <div>
+            <strong>Entregas</strong>
+            <span>Valor e horário a combinar</span>
+          </div>
+        </div>
+        <div className="info-item">
+          <span className="info-icon">🎨</span>
+          <div>
+            <strong>Personalizados</strong>
+            <span>Toppers e papel arroz com acréscimo a combinar</span>
+          </div>
+        </div>
+        <div className="info-item">
+          <span className="info-icon">💳</span>
+          <div>
+            <strong>Pagamento</strong>
+            <span>PIX, Dinheiro, Cartão</span>
+          </div>
+        </div>
       </div>
+
+      {/* ======================== MODAL ======================== */}
+      {selectedImage && (
+        <div className="modal" onClick={handleCloseModal}>
+          <div className="modal-content">
+            <button className="modal-close" onClick={() => setSelectedImage(null)}>
+              <FaTimes />
+            </button>
+            <img src={selectedImage} alt="Bolo em destaque" className="modal-image" />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
